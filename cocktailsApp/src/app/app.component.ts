@@ -27,21 +27,21 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   form: FormGroup;
-  constructor(public fb: FormBuilder) {
+  constructor(public fb: FormBuilder, private http: HttpClient) {
     this.form = this.fb.group({
       name: ['', Validators.required],
     });
   }
 
-  // submitForm() {
-  //   var formData: any = new FormData();
-  //   formData.append('name', this.form.get('name').value);
-  //   formData.append('avatar', this.form.get('avatar').value);
-  //   this.http
-  //     .post('http://localhost:4000/api/create-user', formData)
-  //     .subscribe({
-  //       next: (response) => console.log(response),
-  //       error: (error) => console.log(error),
-  //     });
-  // }
+  submitForm() {
+    var formData: any = new FormData();
+
+    formData.append('name', this.form.get('name').value);
+    this.http
+      .post('http://localhost:4000/api/drinks', formData)
+      .subscribe({
+        next: (response) => console.log(response),
+        error: (error) => console.log(error),
+      });
+  }
 }

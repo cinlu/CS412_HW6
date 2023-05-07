@@ -178,8 +178,7 @@
       Search for a Cocktail
     </h2>
     
-    <!-- <form [formGroup]="form" (ngSubmit)="submitForm()"> -->
-      <form [formGroup]="form" >
+    <form [formGroup]="form" (ngSubmit)="submitForm()">
         <div class="form-group input-group-lg">
             <label class="center-block">Cocktail Name:
               <input class="form-control" formControlName="name">
@@ -192,7 +191,8 @@
         </div>
         <div class="form-group">
             <button class="btn btn-danger btn-block btn-lg"
-            [disabled]="form.pristine || form.invalid" class="btn btn-success">
+            [disabled]="form.pristine || form.invalid" class="btn btn-success"
+            routerLink="viewResults">
             Search
           </button>
         </div>
